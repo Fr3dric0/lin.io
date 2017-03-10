@@ -1,0 +1,9 @@
+CREATE TABLE user (
+	`id` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+	`email` VARCHAR(128) NOT NULL,
+	`password` VARCHAR(255) NOT NULL,
+	`admin` BOOLEAN DEFAULT false,
+	
+	
+	PRIMARY KEY(`id`)
+);

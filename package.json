@@ -1,0 +1,19 @@
+{
+  "name": "lin.io",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www",
+    "build": "node ./node_modules/concurrently/src/main.js \"npm start --prefix ./client\" \"npm start\"",
+    "watch": "node ./node_modules/concurrently/src/main.js \"npm run watch --prefix ./client\" \"nodemon\""
+  },
+  "dependencies": {
+    "bcrypt": "^1.0.2",
+    "body-parser": "1.17.1",
+    "concurrently": "^3.4.0",
+    "cookie-parser": "1.4.3",
+    "debug": "2.6.2",
+    "express": "4.15.2",
+    "morgan": "1.8.1"
+  }
+}

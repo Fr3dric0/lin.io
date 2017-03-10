@@ -1,0 +1,49 @@
+
+$primary-color: #3F51B5;
+$dark-primary: #303F9F;
+$light-primary: #C5CAE9;
+$secondary-color: #2E7D32;
+
+$primary-background-color: #EFEFEF;
+$secondary-background-color: #FFF;
+
+$divider-color: #BDBDBD;
+$accent-color: #FF5252;
+$accent-light-color: #FFCDD2;
+$accent-dark-color: #D32F2F;
+
+/* ----------------------------
+ *          SHADOWING
+ * ----------------------------
+ *
+ * Colors to symbolize status
+ */
+$shadow: rgba(0,0,0, .1) 0.1em 0.1em 0.2em;
+$shadow-hover: rgba(0,0,0, .05) 0.12em 0.12em 0.23em;
+$shadow-active: none;
+
+/* ----------------------------
+ *        STATUS COLORS
+ * ----------------------------
+ *
+ * Colors to symbolize status
+ */
+$error-color: #D32F2F;
+$success-color: $dark-primary;
+$pending-color: #2196F3;
+
+$primary-text: #212121;
+$secondary-text: #757575;
+$icon-text: #FFF;
+
+// Defines the default transition animation
+@mixin transition() {
+  -webkit-transition: all .2s ease;
+  -moz-transition: all .2s ease;
+  -o-transition: all .2s ease;
+  transition: all .2s ease;
+}
+
+@mixin border-radius() {
+  border-radius: 2px;
+}
