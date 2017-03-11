@@ -1,3 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
 
 @import "stylesheets/declarations";
+
+body {
+  background-color: $primary-background-color;
+  margin: 0;
+  padding: 0;
+
+  font: $font;
+  color: $primary-text;
+}
