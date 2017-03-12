@@ -2,11 +2,15 @@
 
 header {
   background: $primary-color;
+  box-sizing: border-box;
+
   position: relative;
   display: inline-block;
 
   height: 70px;
   width: 100%;
+
+  padding: 0 20px 0 20px;
 
   color: $icon-color;
 
@@ -14,13 +18,20 @@ header {
 
 .title-container {
   position: relative;
-  float: left;
+
+  cursor: pointer;
+
   display: flex;
+
+  float: left;
   flex-wrap: nowrap;
 
   height: 100%;
 
-  margin-left: 10px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 
   img {
     margin: 0 10px 0 0;
@@ -30,6 +41,7 @@ header {
   h1 {
     margin-top: 8px;
     font-size: 1.3em;
+    font-weight: 400;
   }
 }
 
@@ -43,7 +55,6 @@ nav {
   height: 100%;
   overflow-y: hidden;
 
-  padding-right: 10px;
 }
 
 button {
@@ -56,15 +67,14 @@ button {
   font-size: 1.2em;
   font-weight: 100;
 
-
-  padding: 4px 25px 4px 25px;
+  padding: 2px 25px 4px 25px; // Text in button looks more centered with top padding less than bottom
 
 
   &:hover {
     text-decoration: underline;
   }
 
-  &:active {
+  &:focus {
     outline: none;
   }
 
@@ -77,5 +87,12 @@ button {
     background-color: $icon-color;
     color: $primary-color;
     text-decoration: none;
+  }
+}
+
+
+@media screen and (max-width:650px) {
+  nav {
+    display: none;
   }
 }

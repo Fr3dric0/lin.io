@@ -1,0 +1,17 @@
+
+
+
+.portfolio-preview {
+  position: relative;
+
+  margin: 50px 20px 0 20px;
+}
+
+.portfolio-list {
+  display: flex;
+  justify-content: center;
+}
+
+lin-project-item~lin-project-item {
+  margin: 0 10px 0 10px;
+}

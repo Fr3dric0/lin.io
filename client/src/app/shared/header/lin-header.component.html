@@ -1,11 +1,11 @@
 <header>
-    <div class="title-container">
+    <div class="title-container" [routerLink]="'/'">
         <img src="/resource/icon.svg" alt="icon">
         <h1 [innerHTML]="title"></h1>
     </div>
 
     <nav>
-        <button [routerLink]="'projects'">projects</button>
+        <button [routerLink]="'portfolio'">portfolio</button>
         <button [routerLink]="'education'">education</button>
         <button [routerLink]="'contact'">contact</button>
     </nav>

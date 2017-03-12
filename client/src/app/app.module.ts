@@ -5,14 +5,16 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { SHARED_DECLARATIONS, SHARED_PROVIDERS } from './shared/index';
-import { DASHBOARD_DECLARATIONS } from './dashboard/index';
+import { DASHBOARD_DECLARATIONS, DASHBOARD_PROVIDERS } from './dashboard/index';
 import { AppRoutingModule } from './app-routing.module';
+import { PROJECTS_DECLARATIONS, PROJECTS_PROVIDERS } from './projects/index';
 
 @NgModule({
     declarations: [
         AppComponent,
         ...SHARED_DECLARATIONS,
-        ...DASHBOARD_DECLARATIONS
+        ...DASHBOARD_DECLARATIONS,
+        ...PROJECTS_DECLARATIONS
     ],
     imports: [
         BrowserModule,
@@ -22,7 +24,8 @@ import { AppRoutingModule } from './app-routing.module';
     ],
     providers: [
         ...SHARED_PROVIDERS,
-        ...DASHBOARD_DECLARATIONS
+        ...DASHBOARD_PROVIDERS,
+        ...PROJECTS_PROVIDERS
     ],
     bootstrap: [ AppComponent ]
 })

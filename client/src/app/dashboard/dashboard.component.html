@@ -1,3 +1,20 @@
-<section>
-    <h2>Dashboard</h2>
+<section class="colored-section colored-section-flexed">
+    <div>
+        <h2>Apps and websites</h2>
+        <p>Is the main products we can provide to you, the consumer</p>
+    </div>
+    <div>
+        <button [routerLink]="'contact'">Make first contact!</button>
+    </div>
+</section>
+
+<section class="portfolio-preview">
+    <h3>Top projects</h3>
+    <div class="portfolio-list">
+        <lin-project-item *ngFor="let p of projects"
+                          [name]="p.name"
+                          [description]="p.description"
+                          [thumb]="p.thumb"
+                          [path]="p.page"></lin-project-item>
+    </div>
 </section>
