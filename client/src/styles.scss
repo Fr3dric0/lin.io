@@ -17,7 +17,16 @@ h2, h3, h4, h5, h6 {
 }
 
 h3 {
-  font-weight: 100;
+  color: $primary-dark-color;
+  //font-weight: 100;
+}
+
+
+button {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .header-background {

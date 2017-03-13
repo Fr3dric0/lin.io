@@ -1,0 +1,52 @@
+@import "../../../stylesheets/declarations";
+
+.project-container {
+  position: relative;
+
+  background-color: $icon-color;
+  border: $border-color solid 1px;
+
+  width: 250px;
+  padding: 5px;
+
+  box-sizing: border-box;
+
+}
+
+h4 {
+  margin: 0;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.thumb-container {
+  position: relative;
+
+  width: auto;
+  height: 150px;
+
+  overflow: hidden;
+
+
+  img {
+    left: -5%;
+    height: 100%;
+  }
+}
+
+
+p {
+  font-size: 0.8em;
+  color: $secondary-text;
+}
+
+.action-container {
+  display: flex;
+  flex-direction: row-reverse;
+  flex-wrap: nowrap;
+
+  a > svg{
+    padding-right: 5px;
+    height: 30px;
+  }
+}
