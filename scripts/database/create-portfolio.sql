@@ -6,6 +6,7 @@ CREATE TABLE project (
 	`client` VARCHAR(128),
 	`page` VARCHAR(255),
 	`course` INT(11),
+	`role` VARCHAR(255),
 
 	PRIMARY KEY(`id`)
 );

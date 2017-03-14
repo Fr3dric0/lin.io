@@ -1,0 +1,55 @@
+<section class="colored-section">
+
+    <h2>Contact</h2>
+    <p>If you have an idea for a <em>product</em> or <em>project</em>, feel free to contact me trough the <strong>form</strong></p>
+</section>
+
+<section class="contact-form-container">
+    <h3>Contact form</h3>
+    <p>The bar is set pretty low for what you can contact me about, so don't be afraid or skeptical to your idéa.
+        My primary languages are <em>Norwegian</em> and <em>English</em></p>
+
+    <form>
+        <div class="input-divider">
+            <label>Your name</label>
+            <input type="text" name="name" placeholder="Jon Snow">
+            <small>Just to build a relation to your idéa. Is however, entirely optional</small>
+        </div>
+        <div class="input-divider">
+            <label class="required">Your email</label>
+            <input type="email" name="email" placeholder="jon.snow@westeros.com" required>
+            <small>Primary way to contact you back</small>
+        </div>
+        <div class="input-divider">
+            <label class="required">Subject</label>
+            <input type="text" name="subject" placeholder="Great project: Cheese tracker!" required>
+            <small>Small overhead of what you want to talk about</small>
+        </div>
+
+        <div class="input-divider">
+            <label class="lbl-textarea required">Messsage</label>
+            <textarea name="message" rows="10"
+                      placeholder="My idéa, the cheese-tracker, will track amount of cheese left in the fridge and warn if one of them is becoming spoiled" required></textarea>
+            <small>Informall description of your idéa, or what you'd like to discuss</small>
+        </div>
+
+        <!-- TODO - ReCAPTCHA here -->
+
+        <recaptcha size="invisible"
+                   #captchaRef="reCaptcha"
+                   (resolved)="$event && submit($event)"
+                   siteKey="6LeC5xgUAAAAAFsU03EmPwNSjTLY2fqk6upKPMGR"></recaptcha>
+
+        <button (click)="captchaRef.execute()">Send</button>
+
+    </form>
+</section>
+
+<section class="social-links">
+    <h3>Social links</h3>
+    <ul>
+        <li>LinkedIn</li>
+        <li>Facebook</li>
+        <li>GitHub</li>
+    </ul>
+</section>

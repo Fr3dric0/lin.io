@@ -1,0 +1,136 @@
+@import "declarations";
+
+section {
+  width: 100%;
+}
+
+form {
+  position: relative;
+
+  width: 100%;
+  max-width: 30em;
+
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1em;
+
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+input, textarea {
+  position: relative;
+
+  color: $accent-color;
+  background-color: $icon-color;
+  border: none;
+  border-bottom: $divider-color 1px solid;
+
+  padding: 0.2em 0.5em 0.2em 0.5em;
+  font-size: 0.8em;
+
+  -webkit-transition: all .3s ease;
+  transition: all .3s ease;
+}
+
+input:focus, textarea:focus {
+  outline: none;
+  border-bottom: $primary-color solid 2px;
+}
+
+input {
+  box-sizing: border-box;
+  float: right;
+  width: 100%;
+  max-width: 25em;
+}
+
+textarea {
+  display: block;
+  margin-top: 0.5em;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+label {
+  position: relative;
+  float: left;
+  font-weight: 100;
+
+  color: $accent-color;
+  &:after {
+    content: ": ";
+  }
+}
+
+label.required:after {
+  content: ": *";
+}
+
+.lbl-textarea {
+  float: none;
+}
+
+small {
+  text-align: right;
+  clear:both;
+  display: block;
+  font-size: 0.6em;
+  color: $secondary-text;
+}
+
+.input-divider {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+
+}
+
+button {
+  border: none;
+
+  font-size: 0.8em;
+  padding: 0.5em 1em 0.5em 1em;
+
+  cursor: pointer;
+
+}
+
+button[type='submit'] {
+  background-color: $accent-color;
+  color: $icon-color;
+  width: 100%;
+
+  &:disabled {
+    opacity: 0.8;
+    cursor: default;
+  }
+}
+
+.confirm-field {
+  width: 100%;
+  max-width: 20em;
+  display: flex;
+  align-items: center;
+  margin: 0 auto 0 auto;
+
+
+  button {
+    width: 10em;
+    color: $icon-color;
+  }
+
+  button~button {
+    margin-left: 0.5em;
+  }
+
+  .btn-comfirm {
+    background-color: $success-color;
+  }
+
+  .btn-cancel {
+    background-color: $error-color;
+  }
+}

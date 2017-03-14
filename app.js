@@ -22,6 +22,19 @@ app.use(express.static(path.join(__dirname, 'client', 'dist'))); // Angular
 app.use('/resource', express.static(path.join(__dirname, 'resources'))); // Resources folder pref: '/resource'
 
 
+
+
+app.use((req, res, next) => {
+    const _config = require('./bin/config/_config.json');
+
+    if (!_config) {
+        throw new Error(`Missing config file '_config.json'!`);
+    }
+    req.config = _config;
+    next();
+});
+
+
 ////////////////////////////////////////
 //             API ROUTES             //
 ////////////////////////////////////////
@@ -32,6 +45,7 @@ app.use(`${api}/users`, require(`${controller}/users`));
 app.use(`${api}/about`, require(`${controller}/about`));
 app.use(`${api}/courses`, require(`${controller}/courses`));
 app.use(`${api}/projects`, require(`${controller}/projects`));
+app.use(`${api}/contact`, require(`${controller}/contact`));
 app.use(`${api}`, require(`${controller}`));
 
 

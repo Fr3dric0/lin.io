@@ -1,0 +1,9 @@
+CREATE TABLE contact(
+	`id` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+	`from` VARCHAR(128) NOT NULL,
+	`name` VARCHAR(255),
+	`subject` VARCHAR(255) NOT NULL,
+	`message` TEXT NOT NULL,
+
+		PRIMARY KEY(`id`)
+);

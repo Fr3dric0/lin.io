@@ -1,5 +1,4 @@
 /* You can add global styles to this file, and also import other style files */
-
 @import "stylesheets/declarations";
 
 body {
@@ -11,7 +10,6 @@ body {
   color: $primary-text;
 }
 
-
 h2, h3, h4, h5, h6 {
   text-align: center;
 }
@@ -21,12 +19,17 @@ h3 {
   //font-weight: 100;
 }
 
-
 button {
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+}
+
+section {
+  position: relative;
+  box-sizing: border-box;
+  padding: 0 1em 0 1em;
 }
 
 .header-background {
@@ -36,7 +39,6 @@ button {
   height: 200px;
   z-index: -1;
 }
-
 
 .colored-section {
   position: relative;
@@ -52,7 +54,7 @@ button {
   }
 
   h2 {
-    margin-top: 30px;
+    margin-top: 0.5em;
   }
 
   p {
@@ -62,7 +64,7 @@ button {
     font-weight: 100;
 
     margin-top: 10px;
-    max-width: 300px;
+    max-width: 25em;
   }
 
   button {
@@ -97,4 +99,15 @@ button {
   h2, p {
     text-align: left;
   }
+
+
+    p {
+      max-width: 19em;
+    }
+
+}
+
+.colored-section + section {
+  margin-top: 80px;
+
 }
