@@ -9,38 +9,38 @@
     <p>The bar is set pretty low for what you can contact me about, so don't be afraid or skeptical to your idéa.
         My primary languages are <em>Norwegian</em> and <em>English</em></p>
 
-    <form>
+    <form [formGroup]="form">
+
         <div class="input-divider">
             <label>Your name</label>
-            <input type="text" name="name" placeholder="Jon Snow">
+            <input type="text" name="name" formControlName="name" placeholder="Jon Snow">
             <small>Just to build a relation to your idéa. Is however, entirely optional</small>
         </div>
         <div class="input-divider">
             <label class="required">Your email</label>
-            <input type="email" name="email" placeholder="jon.snow@westeros.com" required>
+            <input type="email" name="email" formControlName="email" placeholder="jon.snow@westeros.com" required>
             <small>Primary way to contact you back</small>
         </div>
         <div class="input-divider">
             <label class="required">Subject</label>
-            <input type="text" name="subject" placeholder="Great project: Cheese tracker!" required>
+            <input type="text" name="subject" formControlName="subject" placeholder="Great project: Cheese tracker!" required>
             <small>Small overhead of what you want to talk about</small>
         </div>
 
         <div class="input-divider">
             <label class="lbl-textarea required">Messsage</label>
             <textarea name="message" rows="10"
+                      formControlName="message"
                       placeholder="My idéa, the cheese-tracker, will track amount of cheese left in the fridge and warn if one of them is becoming spoiled" required></textarea>
             <small>Informall description of your idéa, or what you'd like to discuss</small>
         </div>
 
-        <!-- TODO - ReCAPTCHA here -->
-
         <recaptcha size="invisible"
                    #captchaRef="reCaptcha"
-                   (resolved)="$event && submit($event)"
+                   (resolved)="$event && submit(form.value, $event)"
                    siteKey="6LeC5xgUAAAAAFsU03EmPwNSjTLY2fqk6upKPMGR"></recaptcha>
 
-        <button (click)="captchaRef.execute()">Send</button>
+        <button [disabled]="!form.valid" (click)="captchaRef.execute()">Send</button>
 
     </form>
 </section>

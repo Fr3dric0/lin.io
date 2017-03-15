@@ -15,22 +15,35 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 
-////////////////////////////////////////
-//            STATIC PATHS            //
-////////////////////////////////////////
 app.use(express.static(path.join(__dirname, 'client', 'dist'))); // Angular
 app.use('/resource', express.static(path.join(__dirname, 'resources'))); // Resources folder pref: '/resource'
 
+const _config = require('./bin/config/_config.json');
+
+if (!_config) {
+    throw new Error(`Missing config file '_config.json'!`);
+}
+
+////////////////////////////////////////
+//            CONFIG DATA             //
+////////////////////////////////////////
+app.use((req, res, next) => {
+    req.config = _config;
+    next();
+});
 
 
+const Mailgun = require('mailgun-js')({
+    apiKey: _config.mailgun.secret,
+    domain: _config.mailgun.domain
+});
 
 app.use((req, res, next) => {
-    const _config = require('./bin/config/_config.json');
-
-    if (!_config) {
-        throw new Error(`Missing config file '_config.json'!`);
-    }
-    req.config = _config;
+    req.email = {
+        to: _config.mailgun.address,
+        from: 'server@lindhagen.io'
+    };
+    req.email.Mailgun = Mailgun;
     next();
 });
 

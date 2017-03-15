@@ -96,41 +96,12 @@ button {
 
   cursor: pointer;
 
-}
-
-button[type='submit'] {
   background-color: $accent-color;
   color: $icon-color;
   width: 100%;
 
   &:disabled {
-    opacity: 0.8;
+    opacity: 0.6;
     cursor: default;
-  }
-}
-
-.confirm-field {
-  width: 100%;
-  max-width: 20em;
-  display: flex;
-  align-items: center;
-  margin: 0 auto 0 auto;
-
-
-  button {
-    width: 10em;
-    color: $icon-color;
-  }
-
-  button~button {
-    margin-left: 0.5em;
-  }
-
-  .btn-comfirm {
-    background-color: $success-color;
-  }
-
-  .btn-cancel {
-    background-color: $error-color;
   }
 }

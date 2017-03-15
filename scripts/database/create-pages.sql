@@ -1,0 +1,8 @@
+CREATE TABLE pages(
+	`id` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+	`page` VARCHAR(128) NOT NULL,
+	`title` VARCHAR(255),
+	`description` TEXT,
+	
+	PRIMARY KEY(`id`)
+);

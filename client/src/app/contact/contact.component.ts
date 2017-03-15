@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ProjectsService } from '../projects/projects.service';
-import { Http } from '@angular/http';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { ContactService } from './contact.service';
 
 @Component({
     selector: 'lin-contact',
@@ -11,21 +11,26 @@ export class ContactComponent implements OnInit {
     sitekey: string = '6LeC5xgUAAAAAFsU03EmPwNSjTLY2fqk6upKPMGR';
     verified: boolean = false;
 
+    form: FormGroup;
 
-    constructor(private http: Http) {}
+    constructor(private cs: ContactService,
+                private fb: FormBuilder) {}
 
     ngOnInit(): void {
+        this.form = this.fb.group({
+            name: ['', []],
+            email: ['', [<any>Validators.required, <any>Validators.pattern(/^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i)]],
+            subject: ['', [<any>Validators.required]],
+            message: ['', [<any>Validators.required]]
+        });
     }
 
 
-    submit(res: string) {
-        console.log(res);
+    submit(values, captcha: string) {
 
-        this.http.post('/api/contact', {
-            email: 'ffl_52@hotmail.com',
-            captcha: res
-        })
-            .map(res => res.json())
+        values['captcha'] = captcha; // Append captcha
+
+        this.cs.mail(values)
             .subscribe((data) => {
                 console.log(data);
             }, (err) => console.error(err.json()));

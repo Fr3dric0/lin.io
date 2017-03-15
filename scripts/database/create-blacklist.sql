@@ -1,0 +1,11 @@
+CREATE TABLE blacklist(
+	`id` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+	`name` VARCHAR(255),
+	`email` VARCHAR(255) NOT NULL,
+	`reason` VARCHAR(255) NOT NULL,
+	`custom_message` VARCHAR(255) NOT NULL,
+	`ip` VARCHAR(255),
+	`ip_ttl` DATETIME,
+
+	PRIMARY KEY(`id`)
+);

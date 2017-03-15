@@ -3,7 +3,10 @@ const request = require('request');
 const contact = [
     checkFields,
     verifyCaptcha,
-    captchaSuccess
+    captchaSuccess,
+    sendMail,
+    saveToDb,
+    returnData
 ];
 
 function checkFields (req, res, next) {
@@ -61,7 +64,43 @@ function captchaSuccess (req, res, next) {
         return next(err);
     }
 
+    next();
+}
+
+function sendMail (req, res, next) {
+    const { subject, message } = req.body;
+    let from = req.body.email;
+    const { Mailgun, to } = req.email;
+
+    if (req.body.name) {
+        from = `${req.body.name} <${from}>`;
+    }
+
+    const options = {
+        from,
+        to,
+        subject: `[Lindhagen IT: User Contact] ${subject}`,
+        text: message,
+        html: `<h1>${subject}</h1>
+        <p>${message}</p>
+        `
+    };
+
+    Mailgun.messages().send(options, (err, body) => {
+        if (err) { return next(err);}
+        next();
+    });
+}
+
+function saveToDb (req, res, next) {
+    // TODO - Store email request in the database
+
+    next();
+}
+
+function returnData (req, res, next) {
     res.status(200).json({success: true});
 }
+
 
 module.exports = { contact };

@@ -11,3 +11,12 @@
  *      "custom_message": String
  *  }
  * */
+const fs = require('fs');
+
+const blackedOut = require('../../bin/config/_blacklisted.json') || [];
+
+function blacklisted(email) {
+    return new Promise((rsv, rr) => {
+
+    });
+}
