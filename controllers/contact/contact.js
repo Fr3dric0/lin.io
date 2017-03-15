@@ -1,7 +1,11 @@
 const request = require('request');
+const Blacklist = require('../../models/blacklist');
+const Contact = require('../../models/contact');
+const requiredFields = ['captcha', 'email', 'subject', 'message'];
 
 const contact = [
     checkFields,
+    checkBlacklist,
     verifyCaptcha,
     captchaSuccess,
     sendMail,
@@ -10,22 +14,33 @@ const contact = [
 ];
 
 function checkFields (req, res, next) {
-/*
-    if (req.body.email === 'ffl_52@hotmail.com') {
-        const err = new Error('[Contact Error] Fuck off Joakim');
-        err.status = 403;
-        return next(err);
-    }*/
 
-    if (!req.body.captcha) {
-        const err = new Error('[Contact Error] Missing captcha string!');
-        err.status = 403;
-        return next(err);
+    for (field of requiredFields) {
+        if (!req.body[field]) {
+            const err = new Error(`[Contact Error] Missing required field '${field}'`);
+            err.status = 400;
+            return next(err);
+        }
     }
-
 
     req.captcha = {};
     next();
+}
+
+function checkBlacklist (req, res, next) {
+    const { email } = req.body;
+
+    Blacklist.find({'email': email})
+        .then((rows) => {
+            if (rows.length > 0) {
+                const err = new Error(`[Contact Email] Blacklisted user`);
+                err.description = rows[0].custom_message;
+                err.status = 403;
+                return next(err);
+            }
+            next();
+        })
+        .catch( err => next(err));
 }
 
 function verifyCaptcha (req, res, next) {
@@ -94,8 +109,17 @@ function sendMail (req, res, next) {
 
 function saveToDb (req, res, next) {
     // TODO - Store email request in the database
+    const { email, name, subject, message } = req.body;
 
-    next();
+    Contact.create({
+        subject,
+        message,
+        from: email,
+        name: name ? name : null
+    })
+        .then((results) => next())
+        .catch( err => next(err));
+
 }
 
 function returnData (req, res, next) {
