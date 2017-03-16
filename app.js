@@ -3,6 +3,7 @@ const path = require('path');
 const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
+const serverIp = '68.66.240.106';
 
 ////////////////////////////////////////
 //             API CONFIG             //
@@ -102,6 +103,42 @@ app.use((err, req, res, next) => {
     if (err.description) {
         e.description = err.description;
     }
+
+    // TODO - Setup error logging if status codes are >=500 or unknown
+
+    if (err.message.startsWith('ER_ACCESS_DENIED_ERROR') ||
+        err.message.includes('ENOTFOUND')) {
+        const timestamp = new Date();
+
+        req.email.Mailgun.messages().send({
+            from: 'server@lindhagen.io',
+            to: req.email.to,
+            subject: '[lindhagen.io] Database Connection Error',
+            text: `
+            Database Connection Error\n\n
+            Timestamp: ${timestamp}\n
+            IP: ${serverIp}\n
+            Error Message: \n\n
+            ${err.message}`,
+            html: `
+            <h1>Database Connection Error</h1>
+            
+            <table>
+                <tr><td>Timestamp</td><td>${timestamp}</td></tr>
+                <tr><td>IP</td><td>${serverIp}</td></tr>
+            </table>
+            <h2>Error message</h2>
+            <pre>${err.message}</pre>`
+        }, (err, body) => {
+            if (err) { return console.error(`\n${timestamp} - [FATAL ERROR] Failed to send email warning\n`); }
+            console.error(`${timestamp} - [Database Error] Could not connect to database, email warning has been sendt`);
+        });
+
+        e.error = `Server error`;
+        e.description = 'If possible please contact the administrators of the site';
+        err.status = 500;
+    }
+
 
     res.status(err.status || 500).json(e);
 });

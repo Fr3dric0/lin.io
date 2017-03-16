@@ -12,6 +12,8 @@ export class ContactComponent implements OnInit {
     verified: boolean = false;
 
     form: FormGroup;
+    feedback:string;
+    success = 0;
 
     constructor(private cs: ContactService,
                 private fb: FormBuilder) {}
@@ -27,12 +29,18 @@ export class ContactComponent implements OnInit {
 
 
     submit(values, captcha: string) {
-
         values['captcha'] = captcha; // Append captcha
+
+        this.feedback = 'Sending message';
+        this.success = 0;
 
         this.cs.mail(values)
             .subscribe((data) => {
-                console.log(data);
-            }, (err) => console.error(err.json()));
+                this.success = 1;
+                this.feedback = 'Message successfully sendt';
+            }, (err) => {
+                this.success = -1;
+                this.feedback = err.json().error;
+            });
     }
 }

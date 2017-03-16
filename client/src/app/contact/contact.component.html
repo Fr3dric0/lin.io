@@ -6,11 +6,12 @@
 
 <section class="contact-form-container">
     <h3>Contact form</h3>
-    <p>The bar is set pretty low for what you can contact me about, so don't be afraid or skeptical to your idéa.
-        My primary languages are <em>Norwegian</em> and <em>English</em></p>
+    <p>My primary languages are <em>Norwegian</em> and <em>English</em></p>
+
+    <div *ngIf="feedback" class="feedback"
+       [ngClass]="{'feedback-error': success == -1, 'feedback-success': success == 1}">{{feedback}}</div>
 
     <form [formGroup]="form">
-
         <div class="input-divider">
             <label>Your name</label>
             <input type="text" name="name" formControlName="name" placeholder="Jon Snow">
@@ -19,7 +20,7 @@
         <div class="input-divider">
             <label class="required">Your email</label>
             <input type="email" name="email" formControlName="email" placeholder="jon.snow@westeros.com" required>
-            <small>Primary way to contact you back</small>
+            <small>Only way to contact you back</small>
         </div>
         <div class="input-divider">
             <label class="required">Subject</label>
@@ -32,7 +33,7 @@
             <textarea name="message" rows="10"
                       formControlName="message"
                       placeholder="My idéa, the cheese-tracker, will track amount of cheese left in the fridge and warn if one of them is becoming spoiled" required></textarea>
-            <small>Informall description of your idéa, or what you'd like to discuss</small>
+            <small>Informal description of your idéa, or what you'd like to discuss</small>
         </div>
 
         <recaptcha size="invisible"
@@ -43,13 +44,4 @@
         <button [disabled]="!form.valid" (click)="captchaRef.execute()">Send</button>
 
     </form>
-</section>
-
-<section class="social-links">
-    <h3>Social links</h3>
-    <ul>
-        <li>LinkedIn</li>
-        <li>Facebook</li>
-        <li>GitHub</li>
-    </ul>
 </section>

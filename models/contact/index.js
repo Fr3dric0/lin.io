@@ -34,7 +34,7 @@ function create (data) {
 }
 
 
-function keys(obj) {
+function keys (obj) {
     let k = [];
     for (key in obj) {
         if (obj.hasOwnProperty(key)) {
@@ -44,7 +44,7 @@ function keys(obj) {
     return k;
 }
 
-function values(obj) {
+function values (obj) {
     let v = [];
     for (key in obj) {
         if (obj.hasOwnProperty(key)) {

@@ -4,7 +4,6 @@ const table = 'blacklist';
 const findQuery = `SELECT ? FROM ${table}`;
 
 
-
 /**
  * @param   {object}    where?  Optional. Key is the WHERE key, and the value is the WHERE value
  * @param   {array}     filter? Optional. Contains what key values you want returned
@@ -17,6 +16,4 @@ function find(where, filter, limit) {
     return Wrapper.query(findQuery, where, filter, limit)
 }
 
-module.exports = {
-    find
-};
+module.exports = { find };
