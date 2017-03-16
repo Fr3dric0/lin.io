@@ -35,7 +35,7 @@ function checkBlacklist (req, res, next) {
             if (rows.length > 0) {
                 const err = new Error(`[Contact Email] Blacklisted user`);
                 err.description = rows[0].custom_message;
-                err.status = 403;
+                err.status = 418;
                 return next(err);
             }
             next();

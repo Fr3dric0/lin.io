@@ -40,7 +40,9 @@ export class ContactComponent implements OnInit {
                 this.feedback = 'Message successfully sendt';
             }, (err) => {
                 this.success = -1;
-                this.feedback = err.json().error;
+                this.feedback = err.status == 418 ?
+                    err.json().description :
+                    err.json().error;
             });
     }
 }
