@@ -4,6 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { RecaptchaModule } from 'ng2-recaptcha';
+import { Angulartics2Module, Angulartics2GoogleAnalytics } from 'angulartics2';
 
 import { AppComponent } from './app.component';
 import { SHARED_DECLARATIONS, SHARED_PROVIDERS } from './shared/index';
@@ -26,7 +27,9 @@ import { CONTACT_DECLARATIONS, CONTACT_PROVIDERS } from './contact/index';
         ReactiveFormsModule,
         HttpModule,
         AppRoutingModule,
-        RecaptchaModule.forRoot()
+        RecaptchaModule.forRoot(),
+        Angulartics2Module.forRoot([ Angulartics2GoogleAnalytics ])
+
     ],
     providers: [
         ...SHARED_PROVIDERS,
