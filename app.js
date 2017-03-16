@@ -3,6 +3,7 @@ const path = require('path');
 const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
+
 const serverIp = '68.66.240.106';
 
 ////////////////////////////////////////
@@ -48,6 +49,8 @@ app.use((req, res, next) => {
     next();
 });
 
+
+app.use(require('./library/middleware/route-protector'));
 
 ////////////////////////////////////////
 //             API ROUTES             //
