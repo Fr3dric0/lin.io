@@ -41,7 +41,9 @@
                    (resolved)="$event && submit(form.value, $event)"
                    siteKey="6LeC5xgUAAAAAFsU03EmPwNSjTLY2fqk6upKPMGR"></recaptcha>
 
-        <button [disabled]="!form.valid" (click)="captchaRef.execute()">Send</button>
+        <button angulartics2On="click" angularticsEvent="ContactSend" angularticsCategory="form"
+                [angularticsProperties]="{label: form.controls['subject']}"
+                [disabled]="!form.valid" (click)="captchaRef.execute()">Send</button>
 
     </form>
 </section>
