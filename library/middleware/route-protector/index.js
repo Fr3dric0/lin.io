@@ -1,3 +1,5 @@
+const path = require('path');
+
 const keywords = [
     'phpmyadmin'
 ];
@@ -11,9 +13,9 @@ function denyKeywords (req, res, next) {
 
     for (key of keywords) {
         if (req.originalUrl.includes(key)) {
-            const err = new Error(`[Route Error] Illegal URL ${req.host}${req.originalUrl}`);
-            err.status = 404;
-            return next(err);
+            return res.status(404).sendFile(
+                'denied.webp',
+                {root: path.join(__dirname, '../../../resources')});
         }
     }
 
