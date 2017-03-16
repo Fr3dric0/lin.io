@@ -42,7 +42,7 @@
                    siteKey="6LeC5xgUAAAAAFsU03EmPwNSjTLY2fqk6upKPMGR"></recaptcha>
 
         <button angulartics2On="click" angularticsEvent="ContactSend" angularticsCategory="form"
-                [angularticsProperties]="{label: form.controls['subject']}"
+                [angularticsProperties]="{label: form.controls['subject'].value}"
                 [disabled]="!form.valid" (click)="captchaRef.execute()">Send</button>
 
     </form>
