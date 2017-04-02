@@ -7,4 +7,14 @@ import { Component, Input } from '@angular/core';
 })
 export class LinHeaderComponent {
     @Input() title: string;
+    
+    showSidemenu: boolean = false;
+
+    toggleMenu () {
+        this.showSidemenu = !this.showSidemenu;
+    }
+
+    hideMenu () {
+        this.showSidemenu = false;
+    }
 }

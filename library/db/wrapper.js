@@ -27,7 +27,7 @@ function query (str, where, filter, limit) {
     return new Promise((rsv, rr) => {
         let opt = [];
 
-        if (!isArray(filter) && typeof filter == 'number') {
+        if (!isArray(filter) && typeof filter === 'number') {
             limit = filter; // Use filter as limiter
             filter = undefined; // Reset filter
         }
@@ -35,7 +35,7 @@ function query (str, where, filter, limit) {
         if (isArray(where)) {
             filter = where; // Where is most likely a filter
             where = undefined; // Reset where
-        } else if (typeof where == 'number') {
+        } else if (typeof where === 'number') {
             limit = where;
             where = undefined;
         }
@@ -69,7 +69,7 @@ function generateFilter (filter) {
 }
 
 function isArray(list) {
-    return Object.prototype.toString.call(list) == '[object Array]';
+    return Object.prototype.toString.call(list) === '[object Array]';
 }
 
 module.exports = { query, isArray };

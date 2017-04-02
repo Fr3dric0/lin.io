@@ -1,11 +1,17 @@
 @import "../../../stylesheets/declarations";
 
+$icon-width: 2em;
+
 header {
+  align-items: center;
+
   background: $primary-color;
   box-sizing: border-box;
 
   position: relative;
-  display: inline-block;
+  display: flex;
+
+  justify-content: space-between;
 
   height: 70px;
   width: 100%;
@@ -14,26 +20,30 @@ header {
 
   color: $icon-color;
 
-
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
   user-select: none;
+
+  nav > button:last-child {
+    // The last item, must use a
+    // special case for the selected class
+    &.selected {
+      background-color: $icon-color;
+
+      color: $primary-color;
+
+      text-decoration: none !important; // Find a way to prevent use of !important
+    }
+  }
 }
 
 .title-container {
-  position: relative;
 
   cursor: pointer;
 
   display: flex;
 
-  float: left;
   flex-wrap: nowrap;
 
   height: 100%;
-  padding-top: 5px;
-
 
   img {
     margin: 0 10px 0 0;
@@ -48,8 +58,6 @@ header {
 }
 
 nav {
-  position: relative;
-  float: right;
   display: flex;
   flex-wrap: nowrap;
   align-items: center;
@@ -87,14 +95,135 @@ button {
 
   &:last-child:hover {
     background-color: $icon-color;
+
     color: $primary-color;
+
     text-decoration: none;
   }
 }
 
+.hamburger-menu {
+  cursor: pointer;
 
-@media screen and (max-width:650px) {
+  display: none;
+
+  font-size: 1.5em;
+}
+
+
+.sidemenu {
+  @include transform();
+
+  $item-padding: 0 .5em;
+
+  background-color: $secondary-background-color;
+  box-shadow: rgba(0, 0, 0, .1) -0.05em 0 0.2em;
+
+  display: none;
+
+  height: 100vh;
+
+  position: fixed;
+
+  right: 0;
+
+  top: 0;
+
+  width: 15em;
+
+  z-index: 20;
+
+  span {
+    align-items: center;
+
+    box-sizing: border-box;
+
+    display: flex;
+
+    flex-wrap: nowrap;
+
+    justify-content: space-between;
+
+    padding: $item-padding;
+  }
+
+  .filler {
+    padding: $item-padding;
+
+    width: $icon-width;
+  }
+
+  h3 {
+    color: $primary-dark-color;
+  }
+
+  svg {
+    border-radius: 2px;
+
+    cursor: pointer;
+
+    fill: $primary-dark-color;
+
+    user-select: none;
+
+    padding: .5em;
+
+    width: $icon-width;
+    height: $icon-width;
+
+    &:hover {
+      background-color: $primary-background-color;
+
+      fill: $primary-color;
+    }
+  }
+
   nav {
+    box-sizing: border-box;
+
+    flex-direction: column;
+    flex-wrap: wrap;
+
+    padding: 0 .5em;
+
+    width: 100%;
+
+    * {
+      padding: .2em;
+
+      width: 100%;
+
+      &:hover {
+        color: $primary-text;
+      }
+
+      &:last-child {
+        color: $primary-text;
+      }
+
+    }
+
+  }
+}
+
+nav *.selected {
+  text-decoration: underline;
+}
+
+.hidden {
+  display: none !important;
+}
+
+@media screen and (max-width: $breakpoint) {
+  header > nav {
     display: none;
+  }
+
+  .hamburger-menu {
+    display: inline;
+  }
+
+  .sidemenu {
+    display: block;
   }
 }

@@ -5,6 +5,7 @@ $primary-dark-color: #00796B;
 $primary-light-color: #B2DFDB;
 
 $primary-background-color: #EEE;
+$secondary-background-color: #FFF;
 
 $accent-color: #607D8B;
 
@@ -22,3 +23,12 @@ $error-color: #FF5252;
 $shadow: rgba(0,0,0,.1) 0.1em 0.1em 0.2em;
 
 $font: 14pt Helvetica, Arial, sans-serif;
+
+$breakpoint: 650px;
+
+$inner-width: 50em;
+
+
+@mixin transform() {
+  transition: all 0.2s ease;
+}

@@ -41,54 +41,75 @@ section {
 }
 
 .colored-section {
-  position: relative;
+  background-color: $primary-color;
 
   color: $icon-color;
 
-  h2, p {
-    text-align: center;
-    margin: 0; // Disables margin for h2
+  display: flex;
 
-    margin-left: auto;
-    margin-right: auto;
-  }
+  flex-wrap: wrap;
 
-  h2 {
-    margin-top: 0.5em;
-  }
+  justify-content: center;
 
-  p {
-    color: $primary-background-color;
+  padding: 2em;
+  position: relative;
 
-    font-size: 0.8em;
-    font-weight: 100;
+  div {
+    display: flex;
 
-    margin-top: 10px;
-    max-width: 25em;
-  }
+    flex-direction: column;
+    flex-grow: 1;
 
-  button {
-    background-color: transparent;
-    border: $icon-color solid 1px;
+    justify-content: center;
 
-    cursor: pointer;
-    color: inherit;
+    max-width: 15em;
 
-    font-size: 0.9em;
-
-    margin-left: 10px;
-
-    padding: 10px 20px 10px 20px;
-
-    &:focus {
-      outline: none;
+    h2 {
+      margin-top: 0.5em;
     }
 
-    &:hover {
-      background-color: $icon-color;
-      color: $primary-color;
+    p {
+      color: $primary-background-color;
+
+      font-size: 0.8em;
+      font-weight: 100;
+
+      margin-top: .2em;
+      max-width: 25em;
+    }
+
+    button {
+      background-color: transparent;
+      border: $icon-color solid 1px;
+
+      color: inherit;
+      cursor: pointer;
+
+      flex-grow: 1;
+      font-size: 0.9em;
+
+      padding: .8em 1.3em;
+
+      width: 100%;
+
+      &:focus {
+        outline: none;
+      }
+
+      &:hover {
+        background-color: $icon-color;
+        color: $primary-color;
+      }
+    }
+
+
+    &:last-child {
+
     }
   }
+
+
+
 }
 
 .colored-section-flexed {

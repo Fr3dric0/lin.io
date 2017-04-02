@@ -11,24 +11,27 @@ const serverIp = '68.66.240.106';
 ////////////////////////////////////////
 const app = express();
 
+app.disable('x-powered-by');
+app.set('trust-proxy', 'loopback');
+
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-
 app.use(express.static(path.join(__dirname, 'client', 'dist'))); // Angular
 app.use('/resource', express.static(path.join(__dirname, 'resources'))); // Resources folder pref: '/resource'
 
+
+////////////////////////////////////////
+//            CONFIG DATA             //
+////////////////////////////////////////
 const _config = require('./bin/config/_config.json');
 
 if (!_config) {
     throw new Error(`Missing config file '_config.json'!`);
 }
 
-////////////////////////////////////////
-//            CONFIG DATA             //
-////////////////////////////////////////
 app.use((req, res, next) => {
     req.config = _config;
     next();
