@@ -1,107 +1,110 @@
-@import "declarations";
-
-section {
-  width: 100%;
-}
 
 form {
-  position: relative;
-
-  width: 100%;
-  max-width: 30em;
-
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 1em;
-
   box-sizing: border-box;
 
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
 
-input, textarea {
+  flex-direction: column;
+
+  justify-content: center;
+
+  margin: 0 auto 1em auto;
+  max-width: 30em;
+
   position: relative;
 
-  color: $accent-color;
+  width: 100%;
+
+  small {
+    clear: both;
+    color: $secondary-text;
+
+    display: block;
+
+    font-size: 0.6em;
+
+    text-align: right;
+  }
+
+  .input-divider {
+    margin: 0.5em 0;
+  }
+
+  button {
+    border: none;
+
+    font-size: 0.8em;
+    padding: 0.5em 1em 0.5em 1em;
+
+    cursor: pointer;
+
+    background-color: $accent-color;
+    color: $icon-color;
+    width: 100%;
+  }
+
+}
+
+input,
+textarea {
   background-color: $icon-color;
   border: none;
   border-bottom: $divider-color 1px solid;
 
-  padding: 0.2em 0.5em 0.2em 0.5em;
+  color: $accent-color;
+
   font-size: 0.8em;
 
-  -webkit-transition: all .3s ease;
-  transition: all .3s ease;
-}
+  padding: 0.2em 0.5em;
+  position: relative;
 
-input:focus, textarea:focus {
-  outline: none;
-  border-bottom: $primary-color solid 2px;
+  transition: all .3s ease;
+
+  &:focus {
+    border-bottom: $primary-color solid 2px;
+
+    outline: none;
+  }
 }
 
 input {
   box-sizing: border-box;
+
   float: right;
-  width: 100%;
+
   max-width: 25em;
+
+  width: 100%;
 }
 
 textarea {
-  display: block;
-  margin-top: 0.5em;
-  width: 100%;
   box-sizing: border-box;
+
+  display: block;
+
+  margin-top: 0.5em;
+
+  width: 100%;
 }
 
 label {
-  position: relative;
+  color: $accent-color;
+
   float: left;
   font-weight: 100;
 
-  color: $accent-color;
+  position: relative;
+
   &:after {
     content: ": ";
   }
-}
 
-label.required:after {
-  content: ": *";
-}
+  &.required:after {
+    content: ": *";
+  }
 
-.lbl-textarea {
-  float: none;
-}
-
-small {
-  text-align: right;
-  clear:both;
-  display: block;
-  font-size: 0.6em;
-  color: $secondary-text;
-}
-
-.input-divider {
-  margin-top: 0.5em;
-  margin-bottom: 0.5em;
-
-}
-
-button {
-  border: none;
-
-  font-size: 0.8em;
-  padding: 0.5em 1em 0.5em 1em;
-
-  cursor: pointer;
-
-  background-color: $accent-color;
-  color: $icon-color;
-  width: 100%;
-
-  &:disabled {
-    opacity: 0.6;
-    cursor: default;
+  .lbl-textarea {
+    float: none;
   }
 }
+

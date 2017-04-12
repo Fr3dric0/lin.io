@@ -20,7 +20,8 @@ $icon-color: #FFF;
 $success-color: #4CAF50;
 $error-color: #FF5252;
 
-$shadow: rgba(0,0,0,.1) 0.1em 0.1em 0.2em;
+$shadow: rgba(0, 0, 0, .1) 0.1em 0.1em 0.15em;
+$shadow-hover: rgba(0, 0, 0, .1) 0.12em 0.1em 0.2em;
 
 $font: 14pt Helvetica, Arial, sans-serif;
 
@@ -29,6 +30,6 @@ $breakpoint: 650px;
 $inner-width: 50em;
 
 
-@mixin transform() {
+@mixin transition() {
   transition: all 0.2s ease;
 }

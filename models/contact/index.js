@@ -15,17 +15,17 @@ function find (where, filter, limit) {
 
 function create (data) {
     return new Promise((rsv, rr) => {
-        let query;
-        let options = [];
-        if (Wrapper.isArray(data)) {
-            query = queries.createNoKeys;
-            options.push(data);
-        } else {
-            query = queries.create;
-            query = query.replace('?', MySql.escapeId(keys(data)));
+            let query;
+            let options = [];
+            if (Wrapper.isArray(data)) {
+                query = queries.createNoKeys;
+                options.push(data);
+            } else {
+                query = queries.create;
+                query = query.replace('?', MySql.escapeId(keys(data)));
 
-            options.push(values(data));
-        }
+                options.push(values(data));
+            }
 
         MySql.query(query, options)
             .then(result => rsv(result))

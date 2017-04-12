@@ -10,6 +10,7 @@
 .portfolio-list {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
 lin-project-item ~ lin-project-item {

@@ -108,7 +108,6 @@ function sendMail (req, res, next) {
 }
 
 function saveToDb (req, res, next) {
-    // TODO - Store email request in the database
     const { email, name, subject, message } = req.body;
 
     Contact.create({

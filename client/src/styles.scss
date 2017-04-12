@@ -1,5 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 @import "stylesheets/declarations";
+@import "stylesheets/lists.scss";
+@import "stylesheets/general.scss";
+@import "stylesheets/header.scss";
+@import "stylesheets/buttons.scss";
+@import "stylesheets/form.scss";
 
 body {
   background-color: $primary-background-color;
@@ -8,127 +13,4 @@ body {
 
   font: $font;
   color: $primary-text;
-}
-
-h2, h3, h4, h5, h6 {
-  text-align: center;
-}
-
-h3 {
-  color: $primary-dark-color;
-  //font-weight: 100;
-}
-
-button {
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
-section {
-  position: relative;
-  box-sizing: border-box;
-  padding: 0 1em 0 1em;
-}
-
-.header-background {
-  background-color: $primary-color;
-  position: absolute;
-  width: 100%;
-  height: 200px;
-  z-index: -1;
-}
-
-.colored-section {
-  background-color: $primary-color;
-
-  color: $icon-color;
-
-  display: flex;
-
-  flex-wrap: wrap;
-
-  justify-content: center;
-
-  padding: 2em;
-  position: relative;
-
-  div {
-    display: flex;
-
-    flex-direction: column;
-    flex-grow: 1;
-
-    justify-content: center;
-
-    max-width: 15em;
-
-    h2 {
-      margin-top: 0.5em;
-    }
-
-    p {
-      color: $primary-background-color;
-
-      font-size: 0.8em;
-      font-weight: 100;
-
-      margin-top: .2em;
-      max-width: 25em;
-    }
-
-    button {
-      background-color: transparent;
-      border: $icon-color solid 1px;
-
-      color: inherit;
-      cursor: pointer;
-
-      flex-grow: 1;
-      font-size: 0.9em;
-
-      padding: .8em 1.3em;
-
-      width: 100%;
-
-      &:focus {
-        outline: none;
-      }
-
-      &:hover {
-        background-color: $icon-color;
-        color: $primary-color;
-      }
-    }
-
-
-    &:last-child {
-
-    }
-  }
-
-
-
-}
-
-.colored-section-flexed {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  h2, p {
-    text-align: left;
-  }
-
-
-    p {
-      max-width: 19em;
-    }
-
-}
-
-.colored-section + section {
-  margin-top: 80px;
-
 }

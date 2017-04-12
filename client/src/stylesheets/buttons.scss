@@ -1,0 +1,17 @@
+
+button,
+.button {
+  @include transition();
+
+  cursor: pointer;
+
+  &:focus {
+    outline: none;
+  }
+
+  &[disabled] {
+    cursor: default;
+
+    opacity: 0.3;
+  }
+}

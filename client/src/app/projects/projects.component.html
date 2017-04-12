@@ -1,10 +1,46 @@
-<section class="colored-section">
-    <div>
-        <h2>Portfolio</h2>
-        <p>Projects I have worked on through the years</p>
-    </div>
+<section class="colored vertical">
+    <h2>Experience</h2>
+    <p>In the years I've worked with programming, I have gained some experience through different projects and
+        courses</p>
 </section>
 
 <section>
+    <h3>For the non technical</h3>
+    <p>Focuses on showcasing my experience through real-world project through school, work or volunteer</p>
 
+    <ul class="cards" *ngIf="projects">
+        <li *ngFor="let project of projects" [routerLink]="'/resource/' + project.id">
+            <div>
+                <img [src]="project.img" [alt]="project.name">
+            </div>
+            <strong>{{project.name}}</strong>
+            <em>Position: {{project.role}}</em>
+        </li>
+    </ul>
+
+</section>
+
+<section>
+    <h3>For the technical</h3>
+    <p>This section aims to showcase more of my competence,
+        for the ones with a more technical view</p>
+
+    <h4>Languages & Frameworks</h4>
+    <p>Listed is the languages and frameworks I have worked with in the past,
+        through courses or different projects</p>
+
+    <ul class="blocks">
+        <li>PHP</li>
+        <li>Java</li>
+        <li>JavaScript</li>
+        <li>Angular</li>
+        <li>Python</li>
+        <li>Spring</li>
+        <li>Spark</li>
+        <li>Flask</li>
+        <li>CodeIgniter</li>
+        <li>NodeJs</li>
+        <li>ExpressJS</li>
+        <li>ImpressPages</li>
+    </ul>
 </section>

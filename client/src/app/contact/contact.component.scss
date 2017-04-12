@@ -1,4 +1,4 @@
-@import "../../stylesheets/form";
+@import "../../stylesheets/declarations";
 
 .contact-form-container > h3 {
   margin-bottom: 0;
@@ -15,7 +15,6 @@
 
   font-size: 0.8em;
 }
-
 
 .feedback {
   background-color: $icon-color;
