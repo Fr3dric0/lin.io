@@ -8,7 +8,7 @@ CREATE TABLE project (
 	`page` VARCHAR(255),
 	`course` INT(11),
 	`role` VARCHAR(255) NOT NULL,
-	`img` VARCHAR(255)
+	`img` VARCHAR(255),
 
 	PRIMARY KEY(`id`)
 );
