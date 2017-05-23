@@ -5,19 +5,23 @@
   "scripts": {
     "start": "node ./bin/www",
     "build": "node ./node_modules/concurrently/src/main.js \"npm start --prefix ./client\" \"npm start\"",
-    "watch": "node ./node_modules/concurrently/src/main.js \"npm run watch --prefix ./client\" \"nodemon\""
+    "watch": "node ./node_modules/concurrently/src/main.js \"npm run watch --prefix ./client\" \"nodemon\"",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "dependencies": {
     "bcrypt": "^1.0.2",
-    "body-parser": "1.17.1",
+    "body-parser": "1.17.2",
     "concurrently": "^3.4.0",
     "cookie-parser": "1.4.3",
-    "debug": "2.6.2",
-    "express": "4.15.2",
-    "mailgun-js": "^0.8.2",
+    "debug": "2.6.7",
+    "express": "4.15.3",
+    "mailgun-js": "^0.10.1",
     "morgan": "1.8.1",
     "mysql": "^2.13.0",
     "mysql2": "^1.2.0",
-    "request": "^2.81.0"
-  }
+    "request": "^2.81.0",
+    "snyk": "^1.30.1"
+  },
+  "snyk": true
 }
