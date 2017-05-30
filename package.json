@@ -17,7 +17,7 @@
     "debug": "2.6.7",
     "express": "4.15.3",
     "mailgun-js": "^0.10.1",
-    "morgan": "1.8.1",
+    "morgan": "1.8.2",
     "mysql": "^2.13.0",
     "mysql2": "^1.2.0",
     "request": "^2.81.0",
