@@ -1,0 +1,23 @@
+
+button,
+.btn {
+  background-color: $primary-color;
+  box-shadow: rgba(0,0,0,.2) 0 0.1em 0.2em;
+
+  color: #FFF;
+
+  text-align: center;
+  transition: all .2s ease;
+
+  &:hover {
+    background-color: lighten($primary-color, 10%);
+  }
+
+  &.flat {
+    background-color: transparent;
+    border: $primary-color solid 2px;
+    box-shadow: none;
+
+    color: $primary-color;
+  }
+}

@@ -1,0 +1,19 @@
+
+
+nav {
+
+}
+
+ul {
+
+  &.dashed {
+    list-style-type: none;
+
+    padding: 0;
+
+    > li::before {
+      content: "-";
+      margin-right: .5em
+    }
+  }
+}

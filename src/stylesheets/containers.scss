@@ -1,0 +1,99 @@
+
+main {
+
+  > * > small,
+  > * > h2 {
+    color: $background-color;
+  }
+
+  > * > small {
+    display: block;
+
+    text-align: center;
+  }
+
+  > * > h2 {
+    font-size: 2.5em;
+    text-align: center;
+  }
+}
+
+.horizontal {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  justify-content: center;
+}
+
+.card {
+  background-color: #FFF;
+  border-radius: 2px;
+  box-sizing: border-box;
+  box-shadow: $shadow-4;
+
+  margin: 1em;
+  max-width: 15em;
+
+  padding: 1em;
+
+  width: 100%;
+
+  > h2,
+  > h3 {
+    text-align: center;
+  }
+
+  &.product {
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: space-between;
+
+    max-width: 17em;
+
+    height: 22em;
+
+    > a.btn {
+      margin-top: auto;
+    }
+  }
+}
+
+.background-color {
+  $triangle-height: 2em;
+  $block-height: 20em;
+  position: absolute;
+  top: 0;
+  width: 100%;
+
+  height: $triangle-height + $block-height;
+
+  z-index: -1;
+
+  .block { 
+    background-color: $primary-color;
+
+    height: $block-height;
+
+    left: 0;
+
+    position: absolute;
+
+    top: 0;
+
+    width: 100%;
+
+  }
+
+  .triangle {
+	position: absolute;
+	bottom: 0;
+    width: 0;
+    height: 0;
+    border-top: $triangle-height solid $primary-color;
+    border-right: 100vw solid transparent;
+  }
+   
+}
