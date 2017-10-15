@@ -1,6 +1,6 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<header>
-    <a routerLink="/"><h1 class="title">Lindhagen IT</h1></a>
+<header [ngClass]="headerStyle">
+    <a routerLink="/"><h1 class="title">{{title}}</h1></a>
 
     <nav>
         <a routerLink="/portfolio">Portfolio</a>
@@ -13,6 +13,7 @@
     <router-outlet></router-outlet>
 </main>
 <footer>
-
-    Copyright © Lindhagen IT 2017
+    <span></span>
+    <span>© {{year}} Lindhagen IT</span>
+    <span></span>
 </footer>

@@ -1,11 +1,6 @@
 
 main {
 
-  > * > small,
-  > * > h2 {
-    color: $background-color;
-  }
-
   > * > small {
     display: block;
 
@@ -17,6 +12,28 @@ main {
     text-align: center;
   }
 }
+
+section,
+article {
+  box-sizing: border-box;
+
+  margin: auto;
+  max-width: $module-width;
+
+  padding: 1em;
+
+  width: 100%;
+
+  > h1,
+  > h2,
+  > h3 {
+    margin-top: 0;
+
+    text-align: center;
+  }
+}
+
+
 
 .horizontal {
   display: flex;

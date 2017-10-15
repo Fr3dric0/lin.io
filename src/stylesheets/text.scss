@@ -6,13 +6,17 @@ h3,
 h4,
 h5,
 h6 {
-  color: $header-color;
+  color: #555;
 
   margin: 0;
+
+  &.light {
+    color: $background-color;
+  }
 }
 
 .title {
-  color: #FFF;
+  color: $primary-color;
 }
 
 a {
@@ -25,4 +29,11 @@ a {
 
 p {
 
+}
+
+small {
+
+  &.light {
+    color: $background-color;
+  }
 }

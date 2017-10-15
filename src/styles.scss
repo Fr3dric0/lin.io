@@ -36,13 +36,15 @@ app-root {
   > header {
     align-items: center;
 
+    //background-color: #FFF;
+    //box-shadow: $shadow-1;
     box-sizing: border-box;
 
     display: flex;
 
     justify-content: space-between;
 
-    padding: 1em;
+    padding: .5em 1em;
 
     > h1 {
       margin: 0;
@@ -51,9 +53,17 @@ app-root {
     > nav {
 
       > a {
-        color: #FFF;
+        color: $primary-color;
 
         font-weight: 100;
+      }
+    }
+
+    &.light {
+
+      > a > h1.title,
+      > nav > a {
+        color: #FFF;
       }
     }
   }
